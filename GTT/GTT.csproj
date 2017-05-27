@@ -118,17 +118,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bus.cs" />
-    <Compile Include="Models\BusContext.cs" />
-    <Compile Include="Models\BusEquipment.cs" />
-    <Compile Include="Models\Equipment.cs" />
-    <Compile Include="Models\Picture.cs" />
-    <Compile Include="Models\PictureBus.cs" />
-    <Compile Include="Models\Route_Connection.cs" />
-    <Compile Include="Models\Tour.cs" />
-    <Compile Include="Models\TourContext.cs" />
-    <Compile Include="Models\TourDate.cs" />
-    <Compile Include="Models\TourLocation.cs" />
+    <Compile Include="EFClases\Bus.cs" />
+    <Compile Include="EFClases\BusContext.cs" />
+    <Compile Include="EFClases\BusEquipment.cs" />
+    <Compile Include="EFClases\Equipment.cs" />
+    <Compile Include="EFClases\Picture.cs" />
+    <Compile Include="EFClases\PictureBus.cs" />
+    <Compile Include="EFClases\Route_Connection.cs" />
+    <Compile Include="EFClases\Tour.cs" />
+    <Compile Include="EFClases\TourContext.cs" />
+    <Compile Include="EFClases\TourDate.cs" />
+    <Compile Include="EFClases\TourLocation.cs" />
+    <Compile Include="Models\BusView.cs" />
+    <Compile Include="Models\Item_View.cs" />
+    <Compile Include="Models\TourView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
