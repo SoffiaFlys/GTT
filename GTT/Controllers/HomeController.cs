@@ -18,20 +18,29 @@ namespace GTT.Controllers
             return View();
             
         }
-        
-        public ActionResult Category(Type type )
+
+        public ActionResult Category( Type type )
         {
-            switch ( type)
+            List<Item_View> ViewedList = new List<Item_View>();
+            switch ( type )
             {
                 case Type.Tour:
                     using ( var context = new TourContext() )
-                    { RedirectToAction( "", context ); }
-                    break;
+                    {
+                        foreach ( Tour tour in context.Tour )
+                            ViewedList.Add( new TourView( tour ) );
+                    }
+                    return View( "", ViewedList );
                 case Type.Bus:
                     using ( var context = new BusContext() )
-                    { RedirectToAction( "", context ); }
-                    break;
+                    {
+                        foreach ( Bus bus in context.Bus )
+                            ViewedList.Add( new BusView( bus ) );
+                    }
+                    return View( "", ViewedList );
+
             }
             return View();
+        }
     }
 }
