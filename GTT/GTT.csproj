@@ -122,25 +122,30 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entities\Bus.cs" />
+    <Compile Include="Entities\BusContext.cs" />
+    <Compile Include="Entities\BusEquipment.cs" />
+    <Compile Include="Entities\Day.cs" />
+    <Compile Include="Entities\Day_Connection.cs" />
+    <Compile Include="Entities\Equipment.cs" />
+    <Compile Include="Entities\FoodType.cs" />
+    <Compile Include="Entities\Picture.cs" />
+    <Compile Include="Entities\PictureBus.cs" />
+    <Compile Include="Entities\Route_Connection.cs" />
+    <Compile Include="Entities\Tour.cs" />
+    <Compile Include="Entities\TourContext.cs" />
+    <Compile Include="Entities\TourDate.cs" />
+    <Compile Include="Entities\TourLocation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="EFClases\Bus.cs" />
-    <Compile Include="EFClases\BusContext.cs" />
-    <Compile Include="EFClases\BusEquipment.cs" />
-    <Compile Include="EFClases\Equipment.cs" />
-    <Compile Include="EFClases\Picture.cs" />
-    <Compile Include="EFClases\PictureBus.cs" />
-    <Compile Include="EFClases\Route_Connection.cs" />
-    <Compile Include="EFClases\Tour.cs" />
-    <Compile Include="EFClases\TourContext.cs" />
-    <Compile Include="EFClases\TourDate.cs" />
-    <Compile Include="EFClases\TourLocation.cs" />
     <Compile Include="Models\BusView.cs" />
     <Compile Include="Models\Item_View.cs" />
     <Compile Include="Models\TourView.cs" />
