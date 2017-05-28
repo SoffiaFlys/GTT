@@ -22,23 +22,25 @@ namespace GTT.Controllers
 
         public ActionResult Category( Type type )
         {
-            List<Item_View> ViewedList = new List<Item_View>();
+            
             switch ( type )
             {
                 case Type.Tour:
+                    List<TourView> ViewedList = new List<TourView>();
                     using ( var context = new TourContext() )
                     {
                         foreach ( Tour tour in context.Tour )
                             ViewedList.Add( new TourView( tour ) );
                     }
-                    return View( "Tours", ViewedList );
+                    return View( "Tours", ViewedList.AsEnumerable<TourView>() );
                 case Type.Bus:
+                    List<BusView> BusList = new List<BusView>();
                     using ( var context = new BusContext() )
                     {
                         foreach ( Bus bus in context.Bus )
-                            ViewedList.Add( new BusView( bus ) );
+                            BusList.Add( new BusView( bus ) );
                     }
-                    return View( "Buses", ViewedList );
+                    return View( "Buses", BusList );
 
             }
             return View();
