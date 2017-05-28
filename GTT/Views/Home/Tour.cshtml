@@ -1,0 +1,14 @@
+﻿@model GTT.Models.TourView
+@{
+    ViewBag.Title = "Tour";
+}
+
+<h2>Tour</h2>
+
+@Model.ID<br />
+@Model.Name<br />
+@Model.FoodType<br />
+@Model.TourDate.First()<br />
+@Model.PriceUSD<br />
+@Model.Description<br />
+<img src="@Model.Picture.First()"><br />
