@@ -1,0 +1,15 @@
+﻿@model IEnumerable<GTT.Models.BusView>
+@{
+    ViewBag.Title = "Buses";
+}
+
+<h2>Buses</h2>
+@foreach(var b in Model)
+{
+    @b.ID<br/>
+    @b.Name<br/>
+    @b.Color<br />
+    @b.Seats<br/>
+    @b.BusEquipment.First()<br />
+    <img src="@b.PictureBus.First()"><br />
+}

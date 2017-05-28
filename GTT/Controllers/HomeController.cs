@@ -30,14 +30,14 @@ namespace GTT.Controllers
                         foreach ( Tour tour in context.Tour )
                             ViewedList.Add( new TourView( tour ) );
                     }
-                    return View( "", ViewedList );
+                    return View( "Tours", ViewedList );
                 case Type.Bus:
                     using ( var context = new BusContext() )
                     {
                         foreach ( Bus bus in context.Bus )
                             ViewedList.Add( new BusView( bus ) );
                     }
-                    return View( "", ViewedList );
+                    return View( "Buses", ViewedList );
 
             }
             return View();
