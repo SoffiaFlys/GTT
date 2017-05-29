@@ -10,25 +10,25 @@ var markers;
 
 function initMap(roude) {
 
-    var addressInput = ["Kuiv", "Eilat", "Nazareth", "Jerusalem"];
+    var addressInput = document.getElementsByClassName("routeItem");
 
     var ways = [];
-    for (i = 1; i < addressInput.length - 2; ++i){
+    for (i = 1; i < addressInput.length - 1; ++i)
         ways.push({
-            location: addressInput[i],
+            location: addressInput[i].innerText,
             stopover: true
         });
-    }
+
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
-        center: addressInput[1]
+        center: addressInput[0].innerText
     });
     directionsDisplay.setMap(map);
     directionsService.route({
-        origin: addressInput[0],
-        destination: addressInput[addressInput.length - 1],
+        origin: addressInput[0].innerText,
+        destination: addressInput[addressInput.length - 1].innerText,
         waypoints: ways,
         optimizeWaypoints: true,
         travelMode: 'DRIVING'

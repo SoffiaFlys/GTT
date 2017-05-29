@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GTT.Entities;
+using GTT.Views.Models;
 
 namespace GTT.Controllers
 {
@@ -54,9 +55,12 @@ namespace GTT.Controllers
             }
         }
 
-        public PartialViewResult Mapa()
+        [HttpPost]
+        public ViewResult MailForm(Message message)
         {
-            return PartialView();
+            
+            return View("Index");
         }
+
     }
 }

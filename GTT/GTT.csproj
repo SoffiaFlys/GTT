@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Views\Models\BusView.cs" />
     <Compile Include="Views\Models\Item_View.cs" />
+    <Compile Include="Views\Models\Message.cs" />
     <Compile Include="Views\Models\TourView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <Content Include="Views\Home\Tour.cshtml" />
     <Content Include="Views\Home\Tours.cshtml" />
     <Content Include="Views\Home\Mapa.cshtml" />
+    <Content Include="Views\Home\MailForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
