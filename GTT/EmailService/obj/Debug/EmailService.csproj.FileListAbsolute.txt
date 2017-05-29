@@ -1,0 +1,16 @@
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\obj\Debug\EmailService.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\bin\Debug\EmailService.dll
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\bin\Debug\EmailService.pdb
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\obj\Debug\EmailService.dll
+C:\Users\Andrew\documents\visual studio 2015\Projects\EmailService\EmailService\obj\Debug\EmailService.pdb
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\bin\Debug\EmailService.dll
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\bin\Debug\EmailService.pdb
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\obj\Debug\EmailService.csprojResolveAssemblyReference.cache
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\obj\Debug\EmailService.dll
+D:\DOWNLOAD\EmailService-master\EmailService-master\EmailService\obj\Debug\EmailService.pdb

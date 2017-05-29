@@ -8,7 +8,7 @@ namespace GTT.Entities
     public partial class BusContext : DbContext
     {
         public BusContext()
-            : base( "name=BusContext1" )
+            : base("name=BusContext")
         {
         }
 
@@ -17,19 +17,19 @@ namespace GTT.Entities
         public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<PictureBus> PictureBus { get; set; }
 
-        protected override void OnModelCreating( DbModelBuilder modelBuilder )
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Bus>()
-                .Property( e => e.Seats )
-                .IsUnicode( false );
+                .Property(e => e.Seats)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Equipment>()
-                .Property( e => e.Description )
-                .IsUnicode( false );
+                .Property(e => e.Description)
+                .IsUnicode(false);
 
             modelBuilder.Entity<PictureBus>()
-                .Property( e => e.PicturePath )
-                .IsUnicode( false );
+                .Property(e => e.PicturePath)
+                .IsUnicode(false);
         }
     }
 }

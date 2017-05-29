@@ -11,6 +11,7 @@ namespace GTT.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Route_Connection()
         {
+            Route_Connection1 = new HashSet<Route_Connection>();
             Tour1 = new HashSet<Tour>();
         }
 
@@ -18,13 +19,16 @@ namespace GTT.Entities
 
         public int? LocationID { get; set; }
 
-        public int? NextLocation { get; set; }
+        public int? NextConnectionID { get; set; }
 
         public int? TourID { get; set; }
 
         public virtual TourLocation TourLocation { get; set; }
 
-        public virtual TourLocation TourLocation1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Route_Connection> Route_Connection1 { get; set; }
+
+        public virtual Route_Connection Route_Connection2 { get; set; }
 
         public virtual Tour Tour { get; set; }
 

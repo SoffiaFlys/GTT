@@ -13,7 +13,6 @@ namespace GTT.Entities
         public TourLocation()
         {
             Route_Connection = new HashSet<Route_Connection>();
-            Route_Connection1 = new HashSet<Route_Connection>();
         }
 
         public int ID { get; set; }
@@ -26,8 +25,5 @@ namespace GTT.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Route_Connection> Route_Connection { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Route_Connection> Route_Connection1 { get; set; }
     }
 }
