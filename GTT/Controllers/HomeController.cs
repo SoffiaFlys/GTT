@@ -45,5 +45,18 @@ namespace GTT.Controllers
             }
             return View();
         }
+        public ActionResult Tour(int Id)
+        {
+            using (TourContext context = new TourContext())
+            {
+                TourView toutview = new TourView(context.Tour.FirstOrDefault(t => t.ID == Id));
+                return View("Tour", toutview);
+            }
+        }
+
+        public PartialViewResult Mapa()
+        {
+            return PartialView();
+        }
     }
 }

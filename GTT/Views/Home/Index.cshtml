@@ -2,5 +2,13 @@
     ViewBag.Title = "GalTourTrans";
 }
 
-@Html.ActionLink("Тури", "Category", new {type = GTT.Controllers.Type.Tour } )
-@Html.ActionLink( "Автобуси", "Category", new { type = GTT.Controllers.Type.Bus } )
+<div class="h2" style="float:left">
+    @Html.ActionLink("Тури", "Category", new { type = GTT.Controllers.Type.Tour })
+</div>
+
+<div class="h2" style="float:right">
+    @Html.ActionLink("Автобуси", "Category", new { type = GTT.Controllers.Type.Bus })
+</div>
+
+<img src="https://hotels.ng/travel/content/images/2015/12/world-travel-agency1.jpg" width="1100" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />

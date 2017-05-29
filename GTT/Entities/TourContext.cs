@@ -8,7 +8,7 @@ namespace GTT.Entities
     public partial class TourContext : DbContext
     {
         public TourContext()
-            : base( "name=TourContext1" )
+            : base("name=TourContext")
         {
         }
 
@@ -21,67 +21,67 @@ namespace GTT.Entities
         public virtual DbSet<TourDate> TourDate { get; set; }
         public virtual DbSet<TourLocation> TourLocation { get; set; }
 
-        protected override void OnModelCreating( DbModelBuilder modelBuilder )
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Day>()
-                .Property( e => e.Description )
-                .IsUnicode( false );
+                .Property(e => e.Description)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Day>()
-                .HasMany( e => e.Day_Connection )
-                .WithOptional( e => e.Day )
-                .HasForeignKey( e => e.DayID );
+                .HasMany(e => e.Day_Connection)
+                .WithOptional(e => e.Day)
+                .HasForeignKey(e => e.DayID);
 
             modelBuilder.Entity<Day>()
-                .HasMany( e => e.Day_Connection1 )
-                .WithOptional( e => e.Day1 )
-                .HasForeignKey( e => e.NextDayID );
+                .HasMany(e => e.Day_Connection1)
+                .WithOptional(e => e.Day1)
+                .HasForeignKey(e => e.NextDayID);
 
             modelBuilder.Entity<Day_Connection>()
-                .HasMany( e => e.Tour1 )
-                .WithOptional( e => e.Day_Connection1 )
-                .HasForeignKey( e => e.ProgramFirstDayID );
+                .HasMany(e => e.Tour1)
+                .WithOptional(e => e.Day_Connection1)
+                .HasForeignKey(e => e.ProgramFirstDayID);
 
             modelBuilder.Entity<FoodType>()
-                .Property( e => e.Description )
-                .IsUnicode( false );
+                .Property(e => e.Description)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Picture>()
-                .Property( e => e.PicturePath )
-                .IsUnicode( false );
+                .Property(e => e.PicturePath)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Route_Connection>()
-                .HasMany( e => e.Tour1 )
-                .WithOptional( e => e.Route_Connection1 )
-                .HasForeignKey( e => e.StartConnectionID );
+                .HasMany(e => e.Route_Connection1)
+                .WithOptional(e => e.Route_Connection2)
+                .HasForeignKey(e => e.NextConnectionID);
+
+            modelBuilder.Entity<Route_Connection>()
+                .HasMany(e => e.Tour1)
+                .WithOptional(e => e.Route_Connection1)
+                .HasForeignKey(e => e.StartConnectionID);
 
             modelBuilder.Entity<Tour>()
-                .Property( e => e.PriceUSD )
-                .HasPrecision( 18, 0 );
+                .Property(e => e.PriceUSD)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Tour>()
-                .Property( e => e.Description )
-                .IsUnicode( false );
+                .Property(e => e.Description)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Tour>()
-                .HasMany( e => e.Day_Connection )
-                .WithOptional( e => e.Tour )
-                .HasForeignKey( e => e.TourID );
+                .HasMany(e => e.Day_Connection)
+                .WithOptional(e => e.Tour)
+                .HasForeignKey(e => e.TourID);
 
             modelBuilder.Entity<Tour>()
-                .HasMany( e => e.Route_Connection )
-                .WithOptional( e => e.Tour )
-                .HasForeignKey( e => e.TourID );
+                .HasMany(e => e.Route_Connection)
+                .WithOptional(e => e.Tour)
+                .HasForeignKey(e => e.TourID);
 
             modelBuilder.Entity<TourLocation>()
-                .HasMany( e => e.Route_Connection )
-                .WithOptional( e => e.TourLocation )
-                .HasForeignKey( e => e.LocationID );
-
-            modelBuilder.Entity<TourLocation>()
-                .HasMany( e => e.Route_Connection1 )
-                .WithOptional( e => e.TourLocation1 )
-                .HasForeignKey( e => e.NextLocation );
+                .HasMany(e => e.Route_Connection)
+                .WithOptional(e => e.TourLocation)
+                .HasForeignKey(e => e.LocationID);
         }
     }
 }

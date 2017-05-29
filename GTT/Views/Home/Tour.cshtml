@@ -1,14 +1,27 @@
 ﻿@model GTT.Models.TourView
 @{
     ViewBag.Title = "Tour";
+    Layout = null;
 }
 
-<h2>Tour</h2>
+<h2> @Model.Name </h2>
+<p>USD:  @Model.PriceUSD </p>
+<p>EUR:  @Model.PriceEUR  </p>
+<p>UAH:</p> @Model.PriceUAH  </p>
+<p> @Model.FoodType </p>
+<p> @Model.Description  </p>
 
-@Model.ID<br />
-@Model.Name<br />
-@Model.FoodType<br />
-@Model.TourDate.First()<br />
-@Model.PriceUSD<br />
-@Model.Description<br />
-<img src="@Model.Picture.First()"><br />
+    @for(int i = 0; i< @Model.Route.Count; ++i )
+    {
+    <p class="routeItem"> @Model.Route.ElementAt(i) </p>
+    }
+
+@for (int i = 0; i < @Model.Days_Program.Count; ++i)
+{
+    <p> @Model.Days_Program.ElementAt(i) </p>
+}
+
+<div>
+    @Html.Partial("Mapa")
+ </div>
+

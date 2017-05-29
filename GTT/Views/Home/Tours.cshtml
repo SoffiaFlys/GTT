@@ -4,14 +4,43 @@
 }
 
 <h2>Tours</h2>
+
 @foreach (var t in Model)
 {
-    @t.ID<br />
-    @t.Name<br />
-    @t.FoodType<br />
-    @t.TourDate.First()<br />
-    @t.PriceUSD<br />
-    @t.Description<br />
-    <img src="@t.Picture.First()"><br />
+    <div class="h1">
+        @Html.ActionLink(@t.Name, "Tour", new { Id = @t.ID })
+        </div>
+
+        <br />
+
+    foreach (var p in @t.Pictures)
+    {
+        <img src="@p" width="400" />
+    }
+
+        <div class="h3">
+            <p>Ціна </p>
+        <p>USD:</p>  @t.PriceUSD         
+        <p>EUR:</p>   @t.PriceEUR  
+        <p> UAH:</p>  @t.PriceUAH 
+            </div>
+            <div class="h3">
+    Харчування:    @t.FoodType <br />
+    Опис:    @t.Description <br />
+                </div>
+
+               <ul>
+
+                    @for (int i = 0; i < t.Route.Count; ++i)
+                    {
+                    <li> @t.Route.ElementAt(i) </li>
+                    }
+
+
+                    }
+                </ul>
 }
+
+
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
