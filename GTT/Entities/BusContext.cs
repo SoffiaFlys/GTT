@@ -8,7 +8,7 @@ namespace GTT.Entities
     public partial class BusContext : DbContext
     {
         public BusContext()
-            : base("name=BusContext")
+            : base( "name=TravelAgency_DB" )
         {
         }
 
