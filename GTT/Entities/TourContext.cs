@@ -8,7 +8,7 @@ namespace GTT.Entities
     public partial class TourContext : DbContext
     {
         public TourContext()
-            : base("name=TourContext")
+            : base( "name=TravelAgency_DB" )
         {
         }
 

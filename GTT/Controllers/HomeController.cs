@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.Mvc;
 using GTT.Entities;
 using GTT.Views.Models;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace GTT.Controllers
 {
@@ -15,6 +18,7 @@ namespace GTT.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -55,10 +59,34 @@ namespace GTT.Controllers
             }
         }
 
+
+        
         [HttpPost]
-        public ViewResult MailForm(Message message)
+        public ViewResult Index(Message message)
         {
-            
+            var fromAddress = new MailAddress( "gtt.callback@gmail.com" );
+            var toAddress = new MailAddress( "kokhan.oksana@gmail.com" );
+            const string fromPassword = "!QAZ2ws3e4";
+            const string subject = "Subject";
+            const string body = "Body";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential( fromAddress.Address, fromPassword )
+            };
+            using ( var msg = new MailMessage( fromAddress, toAddress )
+            {
+                Subject = subject,
+                Body = body
+            } )
+            {
+                smtp.Send( msg );
+            }
             return View("Index");
         }
 
