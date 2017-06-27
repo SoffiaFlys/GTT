@@ -16,8 +16,6 @@ namespace GTT.Entities
         [Column(TypeName = "date")]
         public DateTime? StartDate { get; set; }
 
-        public TimeSpan? Duration { get; set; }
-
         public virtual Tour Tour { get; set; }
     }
 }

@@ -3,13 +3,26 @@
     ViewBag.Title = "Buses";
 }
 
-<h2>Buses</h2>
-@foreach(var b in Model)
+<main style = "margin-left: 2%;">
+<h1 style="text-align:center">Наш автопарк</h1>
+@foreach ( var b in Model )
 {
-    @b.ID<br/>
-    @b.Name<br/>
-    @b.Color<br />
-    @b.Seats<br/>
-    @b.BusEquipment.First()<br />
-    <img src="@b.PictureBus.First()"><br />
-}
+    <div class="tour" style="background-color:rgb(52, 72, 121); border: 3px solid white;border-radius:20px">
+        <img src= @b.PictureBus.First() style="width:60%; height:200px; float:left ;border-radius: 15px;" />
+        <div style="float:left; width:35% ;padding:1%">
+            <h2>@b.Name </h2>
+            <p>@b.Seats </p>
+            
+        </div>
+        <div style="float:left;padding:1%">
+            <ul>
+                @foreach ( var s in @b.BusEquipment )
+                {
+                    <li> @s </li>
+                }
+            </ul>
+        </div>
+    </div>
+ }
+</main>
+        <link href="~/Content/style.css" rel="stylesheet" />
