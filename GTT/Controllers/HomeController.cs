@@ -31,7 +31,7 @@ namespace GTT.Controllers
             switch ( type )
             {
                 case Type.Tour:
-                    List<TourView> ViewedList = new List<TourView>();
+                    var ViewedList = new List<TourView>();
                     using ( var context = new TourContext() )
                     {
                         foreach ( Tour tour in context.Tour )
@@ -54,7 +54,7 @@ namespace GTT.Controllers
         {
             using (TourContext context = new TourContext())
             {
-                TourView toutview = new TourView(context.Tour.FirstOrDefault(t => t.ID == Id));
+                var toutview = new TourView(context.Tour.FirstOrDefault(t => t.ID == Id));
                 return View("Tour", toutview);
             }
         }
@@ -67,10 +67,10 @@ namespace GTT.Controllers
             var fromAddress = new MailAddress( "gtt.callback@gmail.com" );
             var toAddress = new MailAddress( "kokhan.oksana@gmail.com" );
             const string fromPassword = "!QAZ2ws3e4";
-             string subject = message.Subject;
-             string body = String.Format("Message from: {0} \n {1}",message.From, message.Text);
+            var subject = message.Subject;
+            var body = String.Format("Message from: {0} \n {1}",message.From, message.Text);
 
-            var smtp = new SmtpClient
+            using ( var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
@@ -78,16 +78,18 @@ namespace GTT.Controllers
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential( fromAddress.Address, fromPassword )
-            };
-            using ( var msg = new MailMessage( fromAddress, toAddress )
-            {
-                Subject = subject,
-                Body = body
             } )
             {
-                smtp.Send( msg );
+                using ( var msg = new MailMessage( fromAddress, toAddress )
+                {
+                    Subject = subject,
+                    Body = body
+                } )
+                {
+                    smtp.Send( msg );
+                }
+                return View( "Index" );
             }
-            return View("Index");
         }
 
     }
