@@ -67,8 +67,8 @@ namespace GTT.Controllers
             var fromAddress = new MailAddress( "gtt.callback@gmail.com" );
             var toAddress = new MailAddress( "kokhan.oksana@gmail.com" );
             const string fromPassword = "!QAZ2ws3e4";
-            const string subject = "Subject";
-            const string body = "Body";
+             string subject = message.Subject;
+             string body = String.Format("Message from: {0} \n {1}",message.From, message.Text);
 
             var smtp = new SmtpClient
             {

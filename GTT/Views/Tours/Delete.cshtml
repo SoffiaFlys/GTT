@@ -1,0 +1,72 @@
+﻿@model GTT.Entities.Tour
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Day_Connection1.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day_Connection1.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodType.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodType.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Route_Connection1.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route_Connection1.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceUSD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceUSD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

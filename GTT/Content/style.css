@@ -1,0 +1,59 @@
+﻿body {
+    background-color:rgb(241, 209, 184);
+}
+
+main{
+    width:95%;
+    margin-top:5%;
+}
+
+.menu
+{
+    float:left;
+    width:50%;
+    text-align:center;
+    margin-top:5%;
+}
+.tour{
+    float:left;
+    width:48%;
+    padding:0.5%;
+    margin: 1% 0.5%;
+    color:white;
+}
+.tourdesc{
+    float:right;
+    width:40%;
+    display:initial;
+}
+.day{
+    padding:0.5%;
+    margin:0.5%;
+    width:100%;
+    border: 1px solid rgb(9, 39, 154);
+    border-radius: 12px;
+    background-color:rgb(151, 153, 169)
+}
+ul.main_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li.main_menu {
+    float: left;
+}
+
+li.main_menu a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li.main_menu a:hover {
+        background-color: #111;
+    }

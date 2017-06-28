@@ -21,7 +21,7 @@ namespace GTT.Models
         public virtual ICollection<string> Pictures { get; set; }
         public virtual ICollection<string> Route { get; set; }
         public virtual ICollection<DateTime?> TourDate { get; set; }
-        public decimal CurrencyConvert(decimal amount, string fromCurrency, string toCurrency)
+        public static decimal CurrencyConvert(string fromCurrency, string toCurrency)
         {
             // decimal currency = 0;
             decimal exchangeRate = 0;
@@ -51,8 +51,8 @@ namespace GTT.Models
             this.ID = tour.ID;
             this.Name = tour.Name;
             this.PriceUSD = tour.PriceUSD;
-            this.PriceEUR =(decimal)this.PriceUSD* CurrencyConvert((decimal)this.PriceUSD, "USD", "EUR");
-            this.PriceUAH = (decimal)this.PriceUSD * CurrencyConvert((decimal)this.PriceUSD, "USD", "UAH");
+            this.PriceEUR =(decimal)this.PriceUSD* CurrencyConvert("USD", "EUR");
+            this.PriceUAH = (decimal)this.PriceUSD * CurrencyConvert("USD", "UAH");
             this.Days_Program = new List<string>();
             Day_Connection current_day = tour.Day_Connection1;
             while(true)
@@ -68,7 +68,7 @@ namespace GTT.Models
             Route_Connection current_route_connection = tour.Route_Connection1;
             while (current_route_connection.NextConnectionID != tour.StartConnectionID)
             {
-                Route.Add(current_route_connection.TourLocation.City);
+                Route.Add(current_route_connection.TourLocation.Map);
                 current_route_connection = tour.Route_Connection.FirstOrDefault(r => r.ID == current_route_connection.NextConnectionID);
                 if (current_route_connection == null)
                     break;

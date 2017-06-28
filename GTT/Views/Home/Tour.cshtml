@@ -1,28 +1,58 @@
 ﻿@model GTT.Models.TourView
 @{
-    ViewBag.Title = "Tour";
+    ViewBag.Title = Model.Name;
     Layout = null;
 }
+<div class="tour" style="background-color:rgb(52, 72, 121); width:98%">
+    <h1>@Model.Name </h1>
+    <p>@Model.Description </p>
+    <img src="@Model.Pictures.First() " width="60%" height="400" />
+    <div class="tourdesc">
+        <div>
+            <img src="https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-38-512.png" style="float:left; width:20%" />
+            <div style="float:right; width:70%">
+                <p>@Model.PriceUSD USD </p>
+                <p>@Model.PriceEUR EUR  </p>
+                <p>@Model.PriceUAH UAH </p>
+            </div>
+        </div>
+        <h2 style="margin-top:20%; margin-left:30%">@Model.Days_Program.Count днів </h2>
+        <div>
+            <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/eat-circle-orange-512.png" style="float:left; width:10%; margin-left:4%; margin-top:1%" />
+            <div style="float:right; width:70%">
+                <p>@Model.FoodType </p>
+            </div>
+        </div>
+        <div style="margin-top:20%">
+            <img src="https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Calendersvg-128.png" style="float:left; width:15%; margin-left:2%; margin-top:1%" />
+            <div style="float:right; width:70%">
+                @foreach ( var d in Model.TourDate )
+                {
+                    <p>@d.Value.ToShortDateString() </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
-<h2> @Model.Name </h2>
-<p>USD:  @Model.PriceUSD </p>
-<p>EUR:  @Model.PriceEUR  </p>
-<p>UAH:</p> @Model.PriceUAH  </p>
-<p> @Model.FoodType </p>
-<p> @Model.Description  </p>
-
-    @for(int i = 0; i< @Model.Route.Count; ++i )
+<div class="tour" style="color:black; width:60%">
+    <h2 style="text-align:center">Програма</h2>
+    @for ( int i = 0; i < @Model.Days_Program.Count; ++i )
     {
-    <p class="routeItem"> @Model.Route.ElementAt(i) </p>
+        <div class="day">
+            <h4>День @(@i + 1) </h4>
+            <p> @Model.Days_Program.ElementAt( i ) </p>
+        </div>
     }
-
-@for (int i = 0; i < @Model.Days_Program.Count; ++i)
-{
-    <p> @Model.Days_Program.ElementAt(i) </p>
-}
-
-<div>
-    @Html.Partial("Mapa")
- </div>
-
-
+</div>
+<div class="tour" style="color:black; width:35%">
+    <h2 style="text-align:center">Маршрут</h2>
+    @for ( int i = 0; i < @Model.Route.Count; ++i )
+    {
+        <p class="routeItem"> @Model.Route.ElementAt( i ) </p>
+    }
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <div>
+        @Html.Partial( "Mapa" )
+    </div>
+</div>

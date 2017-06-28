@@ -2,42 +2,40 @@
 @{
     ViewBag.Title = "Tours";
 }
-
-<h2>Tours</h2>
-
-@foreach (var t in Model)
-{
-    <div class="h1">
-        @Html.ActionLink(@t.Name, "Tour", new { Id = @t.ID })
-        </div>
-
-        <br />
-
-    foreach (var p in @t.Pictures)
+<main>
+    @foreach ( var t in Model )
     {
-        <img src="@p" width="400" />
-    }
-
-        <div class="h3">
-            <p>Ціна </p>
-        <p>USD:</p>  @t.PriceUSD         
-        <p>EUR:</p>   @t.PriceEUR  
-        <p> UAH:</p>  @t.PriceUAH 
-            </div>
-            <div class="h3">
-    Харчування:    @t.FoodType <br />
-    Опис:    @t.Description <br />
+        <div class="tour">
+            <div style="background-color:rgb(52, 72, 121)">
+                <img src="@t.Pictures.First() " width="60%" height="250" />
+                <div class="tourdesc">
+                    <div>
+                        <img src="https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-38-512.png" style="float:left; width:30%; margin-top:5%" />
+                        <div style="float:right; width:70%">
+                            <h4> @((int)t.PriceUAH) UAH </h4>
+                            <p> @((int)t.PriceUSD) USD </p>
+                            <p> @((int)t.PriceEUR) EUR  </p>
+                        </div>
+                    </div>
+                         <h4 style="margin-top:45%; margin-left:30%">@t.Days_Program.Count днів </h4>
+                    <div>
+                        <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/eat-circle-orange-512.png" style="float:left; width:20%; margin-left:3%" />
+                        <div style="float:right; width:70%">
+                            <p>@t.FoodType </p>
+                        </div>
+                    </div>
+                    <div style="margin-top:35%">
+                        <img src="https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Calendersvg-128.png" style="float:left; width:20%; margin-left:3%" />
+                        <div style="float:right; width:70%">
+                            <p>@t.TourDate.First().Value.ToShortDateString() </p>
+                        </div>
+                    </div>
                 </div>
-
-               <ul>
-
-                    @for (int i = 0; i < t.Route.Count; ++i)
-                    {
-                    <li> @t.Route.ElementAt(i) </li>
-                    }
-                </ul>
-}
-
-
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-
+            </div>
+            @Html.ActionLink(@t.Name, "Tour", new { Id = @t.ID}, new {@class = "btn btn-lg"} )
+            <p style="color:cornflowerblue; margin-left: 4%;">@t.Description </p>
+        
+        </div>
+    }
+    </main>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />

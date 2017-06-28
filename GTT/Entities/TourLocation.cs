@@ -23,6 +23,9 @@ namespace GTT.Entities
         [StringLength(30)]
         public string Country { get; set; }
 
+        [StringLength(30)]
+        public string Map { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Route_Connection> Route_Connection { get; set; }
     }

@@ -13,8 +13,8 @@ namespace GTT.Models
         public string Brand { get; set; }
         public string Color { get; set; }
         public string Seats { get; set; }
-        public virtual ICollection<BusEquipment> BusEquipment { get; set; }
-        public virtual ICollection<PictureBus> PictureBus { get; set; }
+        public virtual ICollection<string> BusEquipment { get; set; }
+        public virtual ICollection<string> PictureBus { get; set; }
 
         public BusView(Bus bus)
         {
@@ -23,8 +23,12 @@ namespace GTT.Models
             this.Brand = bus.Brand;
             this.Color = bus.Color;
             this.Seats = bus.Seats;
-            this.BusEquipment = new List<BusEquipment>( bus.BusEquipment );
-            this.PictureBus = new List<PictureBus>( bus.PictureBus );
+            this.BusEquipment = new List<string>(  );
+            foreach ( var e in bus.BusEquipment )
+                this.BusEquipment.Add( e.Equipment.Description );
+            this.PictureBus = new List<string>( );
+            foreach ( var p in bus.PictureBus )
+                this.PictureBus.Add( p.PicturePath );
         }
     }
 }

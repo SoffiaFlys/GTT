@@ -1,22 +1,25 @@
 ﻿@model GTT.Views.Models.Message
 @{
     ViewBag.Title = "GalTourTrans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="h2" style="float:left">
-    @Html.ActionLink("Тури", "Category", new { type = GTT.Controllers.Type.Tour })
+<main>
+<div class="menu" >
+    <a href="@Url.Action("Category", "Home", new { type = GTT.Controllers.Type.Tour } )">
+        <img src="http://www.infobaywebmarketing.com/wp-content/uploads/2015/07/1437692775_vector_285_04-01.png" >
+    </a>
 </div>
 
-<div class="h2" style="float:right">
-    @Html.ActionLink("Автобуси", "Category", new { type = GTT.Controllers.Type.Bus })
+<div class="menu">
+    <a href="@Url.Action("Category", "Home", new { type = GTT.Controllers.Type.Bus } )">
+        <img src="https://sealife.blob.core.windows.net/media/1907/bus-icon.svg?quality=90">
+    </a>
 </div>
 
-<img src="https://hotels.ng/travel/content/images/2015/12/world-travel-agency1.jpg" width="1100" />
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-<br/>
-
+<div style="margin-top:5%; width:50%; margin-left:25%; float:left">
 @using ( Html.BeginForm() )
 {
+    <h3>Є питання?  Повідомте нас</h3>
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -42,15 +45,17 @@
         <div class="form-group">
             @Html.LabelFor( model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" } )
             <div class="col-md-10">
-                @Html.EditorFor( model => model.Text, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.EditorFor( model => model.Text, new { htmlAttributes = new { @class = "form-control input-lg" } } )
                 @Html.ValidationMessageFor( model => model.Text, "", new { @class = "text-danger" } )
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Send" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
+</div>
+</main>
